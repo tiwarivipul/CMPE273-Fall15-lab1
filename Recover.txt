@@ -1,0 +1,25 @@
+defer is a special statement which makes a function call to be run after the function
+completes.panic is a function that is called to cause a run time error.
+to manage run time panic a built in function is used i.e. Recover.
+Recover stops the panic and returns the value which was passed
+to call the panic function. Below is the example to show hoe to recover from run time panic
+
+
+package main
+
+import "fmt"
+
+func main() {
+
+defer func() {
+
+   str:= recover()
+   fmt.Println(str)
+
+}()
+
+panic("PANIC")
+
+}
+
+
